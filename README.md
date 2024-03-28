@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Boostraping React Part 1 and Part 2
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Part 1
 
-## Available Scripts
+[Video](https://vimeo.com/928144595/b8c9449742?share=copy)
 
-In the project directory, you can run:
+This guide walks you through the steps of setting up a new React application, running it, and making initial modifications using Visual Studio Code as the IDE. The steps include using the command-line interface to create a new React application, launching it, and then making initial clean-up in the project structure.
 
-### `npm start`
+### Step 1: Creating a New React Application
+Use the `create-react-app` tool to bootstrap a new React application. In your command line, navigate to the directory where you want your project to reside and execute the following command:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npx create-react-app first-project
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This command creates a new React application named "first-project" in the specified directory. The process may take a few minutes as it sets up the necessary files and dependencies for a functional React app.
 
-### `npm test`
+### Step 2: Starting the Development Server
+Once the setup is complete, navigate into your project's directory:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+cd first-project
+```
 
-### `npm run build`
+Then, start the development server to see your new React application in action:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This command launches the app in your default web browser, displaying the default React app page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Step 3: Opening the Project in Visual Studio Code
+To open your project in Visual Studio Code, you can use the `code` command followed by a period:
 
-### `npm run eject`
+```bash
+code .
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This command opens your current project directory in Visual Studio Code, allowing you to edit and explore your new React application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Step 4: Exploring the Project Structure
+The new React application comes with a predefined structure, including a `public` directory containing the `index.html` file and a `src` directory with the React source files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `public/index.html`: This is the main HTML file where your React app will be rendered. It contains a `div` with an id of `root`, which is the mounting point for your React application.
+- `src/index.js`: This file attaches your React app to the `index.html` file, targeting the `div` with the id of `root`.
+- `src/App.js`: This file contains the main `App` component, which is rendered inside the `div` with the id of `root` in the `index.html` file.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Step 5: Cleaning Up the Default Project
+You might want to clean up some of the default files and code that come with the `create-react-app` setup:
 
-## Learn More
+1. In `src/index.js`, you can remove unnecessary imports and code, such as `reportWebVitals`.
+2. In `src/App.js`, you can simplify the `App` component by removing the default content and adding a simple "Hello World" message:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+import './App.css';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+function App() {
+  return (
+    <div className="App">
+      <h1>Hello World</h1>
+    </div>
+  );
+}
 
-### Code Splitting
+export default App;
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. In `src/App.css`, you can clear out or modify the default styles as needed.
 
-### Analyzing the Bundle Size
+After making these changes, save your files. Your React app will automatically reload in the browser, reflecting your updates.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Conclusion
+This guide has shown you how to create a new React application, run it, and make initial adjustments to the project structure. You're now ready to start building your React application by adding new components, styling, and functionality as needed.
 
-### Making a Progressive Web App
+## Part 2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[Video](https://vimeo.com/928149499/7be76f4b4e?share=copy)
 
-### Advanced Configuration
+This guide provides an overview of the initial structure and setup of a React application created using the `create-react-app` tool. It explains the purpose of different files and directories, and how to make simple modifications to your React app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Understanding the Project Structure
 
-### Deployment
+#### Public and Source Directories
+- **Public Directory**: Contains files that do not need to be compiled by React, such as the `favicon.ico` and the `index.html`. This directory holds static assets.
+  
+  - **`index.html`**: Serves as the template for your React application. It contains a `div` with an `id="root"`, which is the mounting point for your React app. Normally, you won't need to make many changes to this file, except possibly changing the title of your app within the `<title>` tag.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    ```html
+    <title>My First React App</title>
+    ```
 
-### `npm run build` fails to minify
+- **Source (SRC) Directory**: Contains all the React components, styles, and JavaScript files that will be compiled by React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Index.js and App.js
+- **`index.js`**: The entry point for the React application. It imports the necessary React modules and the root app component. It uses `ReactDOM` to render the `App` component into the `div` with `id="root"` in `index.html`.
+
+  ```javascript
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
+
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+  ```
+
+- **`App.js`**: Contains the main `App` component of your React application. Initially, it might include some placeholder content that you can replace with your own. For example, to display "Hello Everyone", you might have:
+
+  ```javascript
+  import './App.css';
+
+  function App() {
+    return (
+      <div className="App">
+        <h1>Hello Everyone</h1>
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+### Making Simple Modifications
+
+1. **Changing the App Title**: In the `public/index.html` file, change the content of the `<title>` tag to update the title that appears in the browser tab.
+
+2. **Cleaning up the `public` Directory**: Remove unnecessary icons or files that were included by default but are not needed for your project.
+
+3. **Updating the `App` Component**: In `src/App.js`, you can start by removing any import statements that are not used (e.g., logo images) and simplify the component to display a simple message like "Hello Everyone". You can also clear out or adjust the `src/App.css` file to tailor the styling of your app component.
+
+4. **Understanding React Components**: In React, components that are custom or user-defined should start with an uppercase letter (e.g., `App`), while standard HTML elements within JSX code are written in lowercase (e.g., `div`, `h1`).
+
+By following these steps, you will have a clean slate to start developing your React application with a better understanding of its structure and the role of different files.
+
